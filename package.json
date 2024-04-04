@@ -34,4 +34,5 @@
     "express-session": "^1.18.0",
     "mongoose": "^8.2.4"
   }
+  
 }
