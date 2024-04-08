@@ -8,16 +8,23 @@ import CourseRoutes from "./Kanbas/courses/routes.js";
 import ModuleRoutes from "./Kanbas/Modules/routes.js";
 
 import UserRoutes from "./Users/routes.js";
+
 const app = express();
 
 mongoose.connect("mongodb://127.0.0.1:27017/kanbas");
-app.use(cors());
+app.use(
+  cors({
+    credentials: true,
+    origin: [process.env.FRONTEND_URL, "http://localhost:3000"],
+  })
+);
 app.use(express.json());
-
-UserRoutes(app);
 
 ModuleRoutes(app);
 CourseRoutes(app);
+
+UserRoutes(app);
+
 Hello(app);
 Lab5(app);
 
