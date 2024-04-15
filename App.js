@@ -38,7 +38,7 @@ app.use(session(sessionOptions));
 app.use(express.json());
 
 const CONNECTION_STRING =
-  process.env.DB_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas";
+  process.env.DB_CONNECTION_STRING;
 mongoose.connect(CONNECTION_STRING);
 ModuleRoutes(app);
 CourseRoutes(app);
